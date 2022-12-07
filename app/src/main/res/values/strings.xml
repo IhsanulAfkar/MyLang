@@ -2,4 +2,5 @@
     <string name="app_name">MyLang</string>
     <string name="progress_belajar">Progress Belajar</string>
     <string name="list_fitur">List Fitur</string>
+    <string name="translate_via_image">Translate via Image</string>
 </resources>

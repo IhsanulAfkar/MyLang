@@ -15,8 +15,10 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         CardView card2 = (CardView) findViewById(R.id.card2);
+        CardView card3 = (CardView) findViewById(R.id.card3);
 
         card2.setOnClickListener(operasi);
+        card3.setOnClickListener(operasi);
     }
 
     View.OnClickListener operasi = new View.OnClickListener() {
@@ -24,12 +26,17 @@ public class Home extends AppCompatActivity {
         public void onClick(View view) {
             switch (view.getId()){
                 case R.id.card2:goLvEn();break;
+                case R.id.card3:goLvJp();break;
             }
         }
     };
 
     void goLvEn(){
         Intent move = new Intent(getBaseContext(), LearnEn.class);
+        startActivityForResult(move, 0);
+    }
+    void goLvJp(){
+        Intent move = new Intent(getBaseContext(), LearnJp.class);
         startActivityForResult(move, 0);
     }
 }
