@@ -6,6 +6,7 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class Home extends AppCompatActivity {
 
@@ -16,9 +17,11 @@ public class Home extends AppCompatActivity {
 
         CardView card2 = (CardView) findViewById(R.id.card2);
         CardView card3 = (CardView) findViewById(R.id.card3);
+        Button btnCam = (Button) findViewById(R.id.btnCam);
 
         card2.setOnClickListener(operasi);
         card3.setOnClickListener(operasi);
+        btnCam.setOnClickListener(operasi);
     }
 
     View.OnClickListener operasi = new View.OnClickListener() {
@@ -27,6 +30,7 @@ public class Home extends AppCompatActivity {
             switch (view.getId()){
                 case R.id.card2:goLvEn();break;
                 case R.id.card3:goLvJp();break;
+                case R.id.btnCam:goCam();break;
             }
         }
     };
@@ -37,6 +41,11 @@ public class Home extends AppCompatActivity {
     }
     void goLvJp(){
         Intent move = new Intent(getBaseContext(), LearnJp.class);
+        startActivityForResult(move, 0);
+    }
+
+    void goCam(){
+        Intent move = new Intent(getBaseContext(), Camera.class);
         startActivityForResult(move, 0);
     }
 }
