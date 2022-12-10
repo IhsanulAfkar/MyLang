@@ -43,7 +43,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/arrow_left_40"
+            app:srcCompat="@drawable/arrow_pink"
             android:background="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
