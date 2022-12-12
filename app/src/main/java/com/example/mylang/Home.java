@@ -8,19 +8,36 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.HashMap;
 
 public class Home extends AppCompatActivity {
-
+    SessionManager sessionManager;
+    public int level = 25;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        sessionManager = new SessionManager(getApplicationContext());
+        HashMap userdata = sessionManager.getUserDetails();
+
         CardView card2 = (CardView) findViewById(R.id.card2);
         CardView card3 = (CardView) findViewById(R.id.card3);
         Button btnCam = (Button) findViewById(R.id.btnCam);
         ImageButton btnProf = (ImageButton) findViewById(R.id.btnProf);
+        TextView txt1 = (TextView)findViewById(R.id.txt1);
+        TextView txt2 = (TextView)findViewById(R.id.txt2);
+        TextView lvEn = (TextView)findViewById(R.id.lvEn);
+        TextView lvJp = (TextView)findViewById(R.id.lvJp);
 
+        txt1.setText("Selamat datang, "+userdata.get("username").toString());
+        txt2.setText("Welcome, "+userdata.get("username").toString());
+        lvEn.setText(userdata.get("level_en")+"/"+level);
+        lvJp.setText(userdata.get("level_jp")+"/"+level);
+//        Toast.makeText(this, userdata.get("username").toString(), Toast.LENGTH_LONG).show();
         card2.setOnClickListener(operasi);
         card3.setOnClickListener(operasi);
         btnCam.setOnClickListener(operasi);
