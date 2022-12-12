@@ -11,89 +11,190 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
         >
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/topbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="20dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/divall1"
             >
-            <ImageButton
-                android:id="@+id/btnBack"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/topbar"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/arrow_left_40"
-                android:background="@android:color/transparent"
-
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                />
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/logo_cropped"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                />
+                >
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/arrow_left_40"
+                    android:background="@android:color/transparent"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/logo_cropped"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/div1"
+                app:layout_constraintTop_toBottomOf="@id/topbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp"
+                >
+                <TextView
+                    android:id="@+id/txtLv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:text="第０課\n問題 1/4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/div2"
+                app:layout_constraintTop_toBottomOf="@id/div1"
+                android:layout_marginTop="20dp"
+                >
+                <TextView
+                    android:id="@+id/txtContent1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hiragana merupakan alfabet dalam bahasa jepang. Sebelum mempelajari bahasa jepang, kita harus tau cara baca hiragana."
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+                <TextView
+                    android:id="@+id/txtContent2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Berikut daftar hiragana beserta cara baca-nya :"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintTop_toBottomOf="@id/txtContent1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/div1"
-            app:layout_constraintTop_toBottomOf="@id/topbar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="20dp"
+            android:id="@+id/divall2"
+            app:layout_constraintTop_toBottomOf="@id/divall1"
+            android:background="#C8D3EC"
+            android:padding="30dp"
             >
-            <TextView
-                android:id="@+id/txtLv"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="第０課\n問題 1/4"
+                android:orientation="vertical"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/div2"
-            app:layout_constraintTop_toBottomOf="@id/div1"
-            android:layout_marginTop="20dp"
-            >
-            <TextView
-                android:id="@+id/txtContent1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hiragana merupakan alfabet dalam bahasa jepang. Sebelum mempelajari bahasa jepang, kita harus tau cara baca hiragana."
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                />
-            <TextView
-                android:id="@+id/txtContent2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Berikut daftar hiragana beserta cara baca-nya :"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:layout_marginTop="15dp"
-                app:layout_constraintTop_toBottomOf="@id/txtContent1"
-                app:layout_constraintStart_toStartOf="parent"
-                />
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:textSize="20sp"
+                    android:text="あ A     い I　 う U　  え E    お O"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:textSize="20sp"
+                    android:text="か KA  き KI   く KU    け KE こ KO"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:textSize="20sp"
+                    android:text="さ SA  し SHI す SU   せ SE そ SO"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:textSize="20sp"
+                    android:text="た TA  ち CHI つ TSU て TE と TO"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:textSize="20sp"
+                    android:text="な NA  に NI   ぬ NU  ね NE の NO"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:textSize="20sp"
+                    android:text="は HA  ひ HI   ふ FU   へ HE ほ HO"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:textSize="20sp"
+                    android:text="ま MA み MI  む MU め ME も MO"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:textSize="20sp"
+                    android:text="や YA              ゆ YU              よ YO"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:textSize="20sp"
+                    android:text="ら RA  り RI    る RU  れ RE  ろ RO"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:textSize="20sp"
+                    android:text="わ WA             を WO             ん N"
+                    />
+
+            </LinearLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/botbar"
             android:layout_width="match_parent"
@@ -101,6 +202,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:padding="30dp"
             >
             <ImageView
                 android:id="@+id/btnNext"
@@ -113,7 +215,7 @@
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </ScrollView>

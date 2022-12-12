@@ -12,7 +12,10 @@ import android.widget.TextView;
 public class LearnJp extends AppCompatActivity {
 
     private ListView listviewJp;
-    private String [] names = {"Alif", "Budi", "Rusa"};
+    private String [] lvNum = {"第０課", "第１課", "第２課"};
+    private String [] lvNamearr = {"ひらがなひらがなの\n" +
+            "よみかた。", "こんにちわ。わたしー", "おはよう！"};
+    private String [] lvTopic = {"Pengenalan hiragana", "Perkenalan diri", "あいさつ"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +30,7 @@ public class LearnJp extends AppCompatActivity {
 
         @Override
         public int getCount(){
-            return names.length;
+            return lvNamearr.length;
         }
 
         @Override
@@ -44,7 +47,7 @@ public class LearnJp extends AppCompatActivity {
         public View getView(int i, View view, ViewGroup viewGroup) {
             view = getLayoutInflater().inflate(R.layout.cardlevel, viewGroup, false);
             TextView lvName = view.findViewById(R.id.lvName);
-            lvName.setText(names[i]);
+            lvName.setText(lvNamearr[i]);
 
             return view;
         }
