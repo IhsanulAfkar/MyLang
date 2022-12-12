@@ -53,7 +53,7 @@ public class Home extends AppCompatActivity {
     }
 
     void goProf(){
-        Intent move = new Intent(getBaseContext(), Login.class);
+        Intent move = new Intent(getBaseContext(), Profile.class);
         startActivityForResult(move, 0);
     }
 }
