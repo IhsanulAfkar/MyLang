@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         h.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent goMove = new Intent(MainActivity.this, Home.class);
+                Intent goMove = new Intent(MainActivity.this, Login.class);
                 startActivity(goMove);
                 finish();
             }
