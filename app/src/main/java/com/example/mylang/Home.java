@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class Home extends AppCompatActivity {
 
@@ -18,7 +19,7 @@ public class Home extends AppCompatActivity {
         CardView card2 = (CardView) findViewById(R.id.card2);
         CardView card3 = (CardView) findViewById(R.id.card3);
         Button btnCam = (Button) findViewById(R.id.btnCam);
-        Button btnProf = (Button) findViewById(R.id.btnProf);
+        ImageButton btnProf = (ImageButton) findViewById(R.id.btnProf);
 
         card2.setOnClickListener(operasi);
         card3.setOnClickListener(operasi);

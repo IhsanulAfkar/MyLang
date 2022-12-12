@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".Login">
+    tools:context=".Register">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
-                android:text="Login"
+                android:text="Register"
                 android:textColor="#334E7F"
                 android:textSize="35sp"
                 android:textStyle="bold"
@@ -88,6 +88,22 @@
                 app:layout_constraintTop_toBottomOf="@+id/username"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                />
+            <EditText
+                android:id="@+id/confpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:textColorHint="@color/material_on_background_disabled"
+                android:textColor="@color/black"
+                android:background="@drawable/border"
+                android:padding="20dp"
+                android:layout_margin="20dp"
+
+                app:layout_constraintTop_toBottomOf="@+id/password"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 />
 
@@ -104,10 +120,10 @@
             >
 
             <Button
-                android:id="@+id/btnLogin"
+                android:id="@+id/btnRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="LOGIN"
+                android:text="register"
                 android:backgroundTint="#334E7F"
                 android:textSize="22sp"
 
@@ -119,28 +135,28 @@
 
             <TextView
                 android:layout_marginTop="15dp"
-                android:id="@+id/flavRegis"
+                android:id="@+id/flavLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Don't have an account? "
+                android:text="Have an account? "
                 android:textSize="20sp"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintEnd_toStartOf="@id/txtRegis"
+                app:layout_constraintEnd_toStartOf="@id/txtLogin"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnLogin" />
+                app:layout_constraintTop_toBottomOf="@id/btnRegister" />
 
             <TextView
                 android:layout_marginTop="15dp"
-                android:id="@+id/txtRegis"
+                android:id="@+id/txtLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Register"
+                android:text="Login"
                 android:textSize="20sp"
                 android:textColor="#334E7F"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/flavRegis"
-                app:layout_constraintTop_toBottomOf="@id/btnLogin" />
+                app:layout_constraintStart_toEndOf="@id/flavLogin"
+                app:layout_constraintTop_toBottomOf="@id/btnRegister" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
