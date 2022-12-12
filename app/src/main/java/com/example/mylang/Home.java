@@ -18,10 +18,12 @@ public class Home extends AppCompatActivity {
         CardView card2 = (CardView) findViewById(R.id.card2);
         CardView card3 = (CardView) findViewById(R.id.card3);
         Button btnCam = (Button) findViewById(R.id.btnCam);
+        Button btnProf = (Button) findViewById(R.id.btnProf);
 
         card2.setOnClickListener(operasi);
         card3.setOnClickListener(operasi);
         btnCam.setOnClickListener(operasi);
+        btnProf.setOnClickListener(operasi);
     }
 
     View.OnClickListener operasi = new View.OnClickListener() {
@@ -31,6 +33,7 @@ public class Home extends AppCompatActivity {
                 case R.id.card2:goLvEn();break;
                 case R.id.card3:goLvJp();break;
                 case R.id.btnCam:goCam();break;
+                case R.id.btnProf:goProf();break;
             }
         }
     };
@@ -46,6 +49,11 @@ public class Home extends AppCompatActivity {
 
     void goCam(){
         Intent move = new Intent(getBaseContext(), Camera.class);
+        startActivityForResult(move, 0);
+    }
+
+    void goProf(){
+        Intent move = new Intent(getBaseContext(), Profile.class);
         startActivityForResult(move, 0);
     }
 }

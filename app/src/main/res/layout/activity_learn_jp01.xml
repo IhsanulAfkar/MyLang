@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LearnJp"
+    tools:context=".LearnJp0_1"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -49,50 +49,67 @@
             android:layout_height="wrap_content"
             android:id="@+id/div1"
             app:layout_constraintTop_toBottomOf="@id/topbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="20dp"
             >
             <TextView
+                android:id="@+id/txtLv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Benkyo kudasai!"
                 android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="第０課\n問題 1/4"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/div2"
+            app:layout_constraintTop_toBottomOf="@id/div1"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:id="@+id/txtContent1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hiragana merupakan alfabet dalam bahasa jepang. Sebelum mempelajari bahasa jepang, kita harus tau cara baca hiragana."
+                android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/div2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/div1"
-            >
             <TextView
+                android:id="@+id/txtContent2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="7/25"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:textSize="20dp"
+                android:text="Berikut daftar hiragana beserta cara baca-nya :"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"
+                app:layout_constraintTop_toBottomOf="@id/txtContent1"
+                app:layout_constraintStart_toStartOf="parent"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/div3"
+            android:id="@+id/botbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/div2"
-            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             >
-            <ListView
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/btnNext"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/listviewJp"
-
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/arrow_pink"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:rotationY="0"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

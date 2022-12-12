@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mylang">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyLang"
         tools:targetApi="31">
+        <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
+            android:name=".LearnJp0_2"
+            android:exported="false" />
+        <activity
+            android:name=".LearnJp0_1"
+            android:exported="false" />
         <activity
             android:name=".Camera"
             android:exported="false" />
