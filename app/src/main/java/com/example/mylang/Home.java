@@ -35,8 +35,8 @@ public class Home extends AppCompatActivity {
 
         txt1.setText("Selamat datang, "+userdata.get("username").toString());
         txt2.setText("Welcome, "+userdata.get("username").toString());
-        lvEn.setText(userdata.get("level_en")+"/"+level);
-        lvJp.setText(userdata.get("level_jp")+"/"+level);
+        lvEn.setText(userdata.get("quiz_en")+"/"+level);
+        lvJp.setText(userdata.get("quiz_jp")+"/"+level);
 //        Toast.makeText(this, userdata.get("level_jp").toString() + " " + userdata.get("quiz_jp").toString(), Toast.LENGTH_LONG).show();
         card2.setOnClickListener(operasi);
         card3.setOnClickListener(operasi);
