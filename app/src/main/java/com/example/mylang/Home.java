@@ -42,6 +42,9 @@ public class Home extends AppCompatActivity {
         card3.setOnClickListener(operasi);
         btnCam.setOnClickListener(operasi);
         btnProf.setOnClickListener(operasi);
+
+        Button btnTemp = (Button) findViewById(R.id.btnTemp);
+        btnTemp.setOnClickListener(operasi);
     }
 
     View.OnClickListener operasi = new View.OnClickListener() {
@@ -52,6 +55,7 @@ public class Home extends AppCompatActivity {
                 case R.id.card3:goLvJp();break;
                 case R.id.btnCam:goCam();break;
                 case R.id.btnProf:goProf();break;
+                case R.id.btnTemp:goTemp();break;
             }
         }
     };
@@ -72,6 +76,11 @@ public class Home extends AppCompatActivity {
 
     void goProf(){
         Intent move = new Intent(getBaseContext(), Profile.class);
+        startActivityForResult(move, 0);
+    }
+
+    void goTemp(){
+        Intent move = new Intent(getBaseContext(), LearnJp0_1.class);
         startActivityForResult(move, 0);
     }
 }

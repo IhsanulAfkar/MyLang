@@ -126,12 +126,20 @@
                     android:textSize="20sp"
                     android:text="あ A     い I　 う U　  え E    お O"
                     />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="8dp"
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
                     android:textSize="20sp"
                     android:text="か KA  き KI   く KU    け KE こ KO"
+                    />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="8dp"
                     />
                 <TextView
                     android:layout_width="match_parent"
@@ -140,12 +148,20 @@
                     android:textSize="20sp"
                     android:text="さ SA  し SHI す SU   せ SE そ SO"
                     />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="8dp"
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
                     android:textSize="20sp"
                     android:text="た TA  ち CHI つ TSU て TE と TO"
+                    />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="8dp"
                     />
                 <TextView
                     android:layout_width="match_parent"
@@ -154,12 +170,20 @@
                     android:textSize="20sp"
                     android:text="な NA  に NI   ぬ NU  ね NE の NO"
                     />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="8dp"
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
                     android:textSize="20sp"
                     android:text="は HA  ひ HI   ふ FU   へ HE ほ HO"
+                    />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="8dp"
                     />
                 <TextView
                     android:layout_width="match_parent"
@@ -168,6 +192,10 @@
                     android:textSize="20sp"
                     android:text="ま MA み MI  む MU め ME も MO"
                     />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="8dp"
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -175,12 +203,20 @@
                     android:textSize="20sp"
                     android:text="や YA              ゆ YU              よ YO"
                     />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="8dp"
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
                     android:textSize="20sp"
                     android:text="ら RA  り RI    る RU  れ RE  ろ RO"
+                    />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="8dp"
                     />
                 <TextView
                     android:layout_width="match_parent"
@@ -199,6 +235,7 @@
             android:id="@+id/botbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/divall2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
