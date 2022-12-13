@@ -43,7 +43,8 @@ public class Login extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             switch (view.getId()){
-                case R.id.btnLogin:login();break;
+//                case R.id.btnLogin:login();break;
+                case R.id.btnLogin:goHome();break;
                 case R.id.txtRegis:goRegis();break;
             }
         }
