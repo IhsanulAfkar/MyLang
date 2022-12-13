@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,6 +58,11 @@ public class LearnJp0_2 extends AppCompatActivity {
         ans6 = (EditText) findViewById(R.id.ans6);
         ans7 = (EditText) findViewById(R.id.ans7);
         ans8 = (EditText) findViewById(R.id.ans8);
+
+        ImageButton btnBack = (ImageButton) findViewById(R.id.btnBack);
+        ImageView logo = (ImageView) findViewById(R.id.logo);
+        btnBack.setOnClickListener(op);
+        logo.setOnClickListener(op);
         Opendb = new SQLiteOpenHelper(this, "db.sql", null, 1){
             @Override
             public void onCreate(SQLiteDatabase db){ };
@@ -73,6 +79,8 @@ public class LearnJp0_2 extends AppCompatActivity {
         public void onClick(View view) {
             switch (view.getId()){
                 case R.id.btnNext:quiz();break;
+                case R.id.btnBack:goBack();break;
+                case R.id.logo:goHome();break;
             }
         }
     };
@@ -140,5 +148,15 @@ public class LearnJp0_2 extends AppCompatActivity {
         q7.setText(question_jp.question[currquiz][6]);
         q8.setText(question_jp.question[currquiz][7]);
 
+    }
+    void goBack(){
+        finish();
+//        Intent move = new Intent(getBaseContext(), Home.class);
+//        startActivityForResult(move, 0);
+    }
+
+    void goHome(){
+        Intent move = new Intent(getBaseContext(), Home.class);
+        startActivityForResult(move, 0);
     }
 }

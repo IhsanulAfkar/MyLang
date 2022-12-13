@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:text="第０課\n問題 1/4"
+                android:text="第０課"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 />

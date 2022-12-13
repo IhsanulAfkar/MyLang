@@ -16,6 +16,9 @@
         android:theme="@style/Theme.MyLang"
         tools:targetApi="31">
         <activity
+            android:name=".LearnEn0_2"
+            android:exported="false" />
+        <activity
             android:name=".LvFinish"
             android:exported="false" />
         <activity

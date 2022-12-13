@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:text="Level 1\nQuestion 1/4"
+                    android:text="Level 1"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     />
@@ -237,6 +237,53 @@
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="8dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Where are you from?"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Anda berasal dari mana?"
+                    android:textSize="18sp"
+                    />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="8dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="I'm from Indonesia"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Saya dari Indonesia"
+                    android:textSize="18sp"
+                    />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="8dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Nice to meet you"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Senang bertemu Anda"
+                    android:textSize="18sp"
                     />
 
             </LinearLayout>
