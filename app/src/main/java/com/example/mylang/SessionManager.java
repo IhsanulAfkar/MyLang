@@ -26,6 +26,7 @@ public class SessionManager {
     public static final String LEVEL_EN = "level_en";
     public static final String QUIZ_JP = "quiz_jp";
     public static final String QUIZ_EN = "quiz_en";
+    public static final String TEMP = "temp";
 
 
 
@@ -42,6 +43,24 @@ public class SessionManager {
         editor.putString(LEVEL_EN, lv_en);
         editor.putString(QUIZ_JP, q_jp);
         editor.putString(QUIZ_EN, q_en);
+        editor.commit();
+    }
+    public void updateLevelJp(String lv_jp, String q_jp){
+        editor.putString(LEVEL_JP, lv_jp);
+        editor.putString(QUIZ_JP, q_jp);
+        editor.commit();
+    }
+    public void updateLevelEn(String lv_en, String q_en){
+        editor.putString(LEVEL_EN, lv_en);
+        editor.putString(QUIZ_EN, q_en);
+        editor.commit();
+    }
+    public void createTemp(String temp){
+        editor.putString(TEMP, temp);
+        editor.commit();
+    }
+    public void deleteTemp() {
+        editor.putString(TEMP, null);
         editor.commit();
     }
 
@@ -67,6 +86,7 @@ public class SessionManager {
         user.put(LEVEL_EN, pref.getString(LEVEL_EN,null));
         user.put(QUIZ_JP, pref.getString(QUIZ_JP,null));
         user.put(QUIZ_EN, pref.getString(QUIZ_EN,null));
+        user.put(TEMP, pref.getString(TEMP,null));
         return user;
     }
 

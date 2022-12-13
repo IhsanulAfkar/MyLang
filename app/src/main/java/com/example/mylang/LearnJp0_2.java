@@ -2,7 +2,10 @@ package com.example.mylang;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +14,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 public class LearnJp0_2 extends AppCompatActivity {
+    private SQLiteOpenHelper Opendb;
+    private SQLiteDatabase mydb;
+    SessionManager sm;
+    HashMap userdata;
 
     EditText ans1,ans2,ans3,ans4,ans5,ans6,ans7,ans8;
     TextView q1,q2,q3,q4,q5,q6,q7,q8;
@@ -25,6 +34,8 @@ public class LearnJp0_2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn_jp02);
+        sm = new SessionManager(getBaseContext());
+        userdata = sm.getUserDetails();
 
         btnNext = (ImageView) findViewById(R.id.btnNext);
         btnNext.setOnClickListener(op);
@@ -46,7 +57,15 @@ public class LearnJp0_2 extends AppCompatActivity {
         ans6 = (EditText) findViewById(R.id.ans6);
         ans7 = (EditText) findViewById(R.id.ans7);
         ans8 = (EditText) findViewById(R.id.ans8);
+        Opendb = new SQLiteOpenHelper(this, "db.sql", null, 1){
+            @Override
+            public void onCreate(SQLiteDatabase db){ };
+            @Override
+            public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){};
+        };
+        mydb = Opendb.getWritableDatabase();
         putquiz();
+
 //        Toast.makeText(this, "Your score is: " + question_jp.ans[currquiz][0], Toast.LENGTH_LONG).show();
     }
     View.OnClickListener op = new View.OnClickListener() {
@@ -69,7 +88,7 @@ public class LearnJp0_2 extends AppCompatActivity {
                 ans7.getText().toString(),
                 ans8.getText().toString(),
         };
-        for (int a = 0; a < quizlen-1; a++){
+        for (int a = 0; a < quizlen; a++){
             if(ans[a].equals(question_jp.ans[currquiz][a])){
                 score++;
             }
@@ -77,10 +96,25 @@ public class LearnJp0_2 extends AppCompatActivity {
         if ((currquiz + 1) == totquiz){
             int totscore = quizlen * totquiz;
             Toast.makeText(this, "Your score is: " + score + "/" + totscore, Toast.LENGTH_LONG).show();
-            Intent move = new Intent(getBaseContext(), Home.class);
+
+            ContentValues cv = new ContentValues();
+            cv.put("quiz_jp", Integer.toString(score));
+            cv.put("level_jp", "1");
+            mydb.update("user", cv, "username = ?", new String[]{userdata.get("username").toString()});
+            sm.updateLevelJp("1", Integer.toString(score));
+            int sts = 0;
+            if(score > 10){
+                sts = 0;
+            } else if(score > 5 && score <=10){
+                sts = 1;
+            } else {
+                sts = 2;
+            }
+            sm.createTemp(Integer.toString(sts));
+            Intent move = new Intent(getBaseContext(), LvFinish.class);
             startActivityForResult(move, 0);
         } else {
-            Toast.makeText(this, "Test: " + ans[0] + " " + currquiz , Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "Test: " + ans[0] + " " + currquiz , Toast.LENGTH_LONG).show();
             currquiz++;
             putquiz();
         }
