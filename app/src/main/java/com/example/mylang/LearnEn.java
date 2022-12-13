@@ -1,11 +1,15 @@
 package com.example.mylang;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -17,36 +21,40 @@ public class LearnEn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn_en);
-        listviewEn = findViewById(R.id.listviewEn);
 
-        LvAdapter adapter = new LvAdapter();
-        listviewEn.setAdapter(adapter);
+        CardView lvEn0 = (CardView) findViewById(R.id.lvEn0);
+        lvEn0.setOnClickListener(operasi);
+
+        ImageButton btnBack = (ImageButton) findViewById(R.id.btnBack);
+        ImageView logo = (ImageView) findViewById(R.id.logo);
+        btnBack.setOnClickListener(operasi);
+        logo.setOnClickListener(operasi);
     }
 
-    public class LvAdapter extends BaseAdapter{
-
+    View.OnClickListener operasi = new View.OnClickListener() {
         @Override
-        public int getCount(){
-            return names.length;
+        public void onClick(View view) {
+            switch (view.getId()){
+                case R.id.lvEn0:goLvEn0();break;
+                case R.id.btnBack:goBack();break;
+                case R.id.logo:goHome();break;
+            }
         }
+    };
 
-        @Override
-        public Object getItem(int i) {
-            return null;
-        }
+    void goLvEn0(){
+        Intent move = new Intent(getBaseContext(), LearnEn0_1.class);
+        startActivityForResult(move, 0);
+    }
 
-        @Override
-        public long getItemId(int i) {
-            return 0;
-        }
+    void goBack(){
+        finish();
+//        Intent move = new Intent(getBaseContext(), Home.class);
+//        startActivityForResult(move, 0);
+    }
 
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            view = getLayoutInflater().inflate(R.layout.cardlevel, viewGroup, false);
-            TextView lvName = view.findViewById(R.id.lvName);
-            lvName.setText(names[i]);
-
-            return view;
-        }
+    void goHome(){
+        Intent move = new Intent(getBaseContext(), Home.class);
+        startActivityForResult(move, 0);
     }
 }

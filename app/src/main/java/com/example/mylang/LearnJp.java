@@ -1,6 +1,7 @@
 package com.example.mylang;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,61 +10,52 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class LearnJp extends AppCompatActivity {
 
-    private ListView listviewJp;
-    private String [] lvNum = {"第０課", "第１課", "第２課"};
-    private String [] lvNamearr = {"ひらがなひらがなの\n" +
-            "よみかた。", "こんにちわ。わたしー", "おはよう！"};
-    private String [] lvTopic = {"Pengenalan hiragana", "Perkenalan diri", "あいさつ"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn_jp);
-//        listviewJp = findViewById(R.id.listviewJp);
-//
-//        LvAdapter adapter = new LvAdapter();
-//        listviewJp.setAdapter(adapter);
-//
-//        listviewJp.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                if(i==0){
-//                    Intent move = new Intent(view.getContext(), LearnJp0_1.class);
-//                    startActivity(move);
-//                }
-//            }
-//        });
-        // blum work
+
+        CardView lvJp0 = (CardView) findViewById(R.id.lvJp0);
+        lvJp0.setOnClickListener(operasi);
+
+        ImageButton btnBack = (ImageButton) findViewById(R.id.btnBack);
+        ImageView logo = (ImageView) findViewById(R.id.logo);
+        btnBack.setOnClickListener(operasi);
+        logo.setOnClickListener(operasi);
     }
 
-//    public class LvAdapter extends BaseAdapter{
-//
-//        @Override
-//        public int getCount(){
-//            return lvNamearr.length;
-//        }
-//
-//        @Override
-//        public Object getItem(int i) {
-//            return null;
-//        }
-//
-//        @Override
-//        public long getItemId(int i) {
-//            return 0;
-//        }
-//
-//        @Override
-//        public View getView(int i, View view, ViewGroup viewGroup) {
-//            view = getLayoutInflater().inflate(R.layout.cardlevel, viewGroup, false);
-//            TextView lvName = view.findViewById(R.id.lvName);
-//            lvName.setText(lvNamearr[i]);
-//
-//            return view;
-//        }
-//    }
+    View.OnClickListener operasi = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()){
+                case R.id.lvJp0:goLvJp0();break;
+                case R.id.btnBack:goBack();break;
+                case R.id.logo:goHome();break;
+            }
+        }
+    };
+
+    void goLvJp0(){
+        Intent move = new Intent(getBaseContext(), LearnJp0_1.class);
+        startActivityForResult(move, 0);
+    }
+
+    void goBack(){
+        finish();
+//        Intent move = new Intent(getBaseContext(), Home.class);
+//        startActivityForResult(move, 0);
+    }
+
+    void goHome(){
+        Intent move = new Intent(getBaseContext(), Home.class);
+        startActivityForResult(move, 0);
+    }
 }

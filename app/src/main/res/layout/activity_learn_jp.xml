@@ -92,7 +92,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 >
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/lvJp1"
+                    android:id="@+id/lvJp0"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     app:cardBackgroundColor="#E2F6F7"
@@ -101,10 +101,10 @@
                     >
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         >
                         <TextView
-                            android:id="@+id/lvNum"
+                            android:id="@+id/lvNum1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="第０課"
@@ -114,23 +114,23 @@
                             app:layout_constraintStart_toStartOf="parent"
                             />
                         <TextView
-                            android:id="@+id/lvName"
+                            android:id="@+id/lvName1"
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
                             android:text="ひらがなひらがなのよみかた。"
                             android:textSize="20sp"
-                            app:layout_constraintTop_toBottomOf="@id/lvNum"
+                            app:layout_constraintTop_toBottomOf="@id/lvNum1"
                             app:layout_constraintStart_toStartOf="parent"
                             />
 
                         <TextView
-                            android:id="@+id/lvTopic"
+                            android:id="@+id/lvTopic1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Pengenalan hiragana"
                             android:textSize="20sp"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lvName" />
+                            app:layout_constraintTop_toBottomOf="@id/lvName1" />
 
                         <ImageButton
                             android:layout_width="wrap_content"
@@ -145,9 +145,13 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.cardview.widget.CardView>
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    />
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/lvJp2"
+                    android:id="@+id/lvJp1"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     app:cardBackgroundColor="#E2F6F7"
@@ -156,10 +160,10 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="match_parent">
 
                         <TextView
-                            android:id="@+id/lvNum"
+                            android:id="@+id/lvNum2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="第１課"
@@ -169,22 +173,22 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/lvName"
+                            android:id="@+id/lvName2"
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
                             android:text="こんにちわ。わたしー"
                             android:textSize="20sp"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lvNum" />
+                            app:layout_constraintTop_toBottomOf="@id/lvNum2" />
 
                         <TextView
-                            android:id="@+id/lvTopic"
+                            android:id="@+id/lvTopic2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Perkenalan diri"
                             android:textSize="20sp"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lvName" />
+                            app:layout_constraintTop_toBottomOf="@id/lvName2" />
 
                         <ImageButton
                             android:layout_width="wrap_content"
@@ -198,21 +202,25 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.cardview.widget.CardView>
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    />
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/lvJp1"
+                    android:id="@+id/lvJp2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="150dp"
                     app:cardBackgroundColor="#E2F6F7"
                     app:contentPadding="20dp"
                     app:cardCornerRadius="24dp"
                     >
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         >
 
                         <TextView
-                            android:id="@+id/lvNum"
+                            android:id="@+id/lvNum3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="第２課"
@@ -222,22 +230,22 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/lvName"
+                            android:id="@+id/lvName3"
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
                             android:text="おはよう！"
                             android:textSize="20sp"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lvNum" />
+                            app:layout_constraintTop_toBottomOf="@id/lvNum3" />
 
                         <TextView
-                            android:id="@+id/lvTopic"
+                            android:id="@+id/lvTopic3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="あいさつ"
                             android:textSize="20sp"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lvName" />
+                            app:layout_constraintTop_toBottomOf="@id/lvName3" />
 
                         <ImageButton
                             android:layout_width="wrap_content"

@@ -27,7 +27,7 @@ public class Home extends AppCompatActivity {
         CardView card2 = (CardView) findViewById(R.id.card2);
         CardView card3 = (CardView) findViewById(R.id.card3);
         Button btnCam = (Button) findViewById(R.id.btnCam);
-        ImageButton btnProf = (ImageButton) findViewById(R.id.btnProf);
+//        ImageButton btnProf = (ImageButton) findViewById(R.id.btnProf);
         TextView txt1 = (TextView)findViewById(R.id.txt1);
         TextView txt2 = (TextView)findViewById(R.id.txt2);
         TextView lvEn = (TextView)findViewById(R.id.lvEn);
@@ -41,10 +41,10 @@ public class Home extends AppCompatActivity {
         card2.setOnClickListener(operasi);
         card3.setOnClickListener(operasi);
         btnCam.setOnClickListener(operasi);
-        btnProf.setOnClickListener(operasi);
+//        btnProf.setOnClickListener(operasi);
 
-        Button btnTemp = (Button) findViewById(R.id.btnTemp);
-        btnTemp.setOnClickListener(operasi);
+//        Button btnTemp = (Button) findViewById(R.id.btnTemp);
+//        btnTemp.setOnClickListener(operasi);
     }
 
     View.OnClickListener operasi = new View.OnClickListener() {
@@ -54,8 +54,8 @@ public class Home extends AppCompatActivity {
                 case R.id.card2:goLvEn();break;
                 case R.id.card3:goLvJp();break;
                 case R.id.btnCam:goCam();break;
-                case R.id.btnProf:goProf();break;
-                case R.id.btnTemp:goTemp();break;
+//                case R.id.btnProf:goProf();break;
+//                case R.id.btnTemp:goTemp();break;
             }
         }
     };
@@ -79,8 +79,8 @@ public class Home extends AppCompatActivity {
         startActivityForResult(move, 0);
     }
 
-    void goTemp(){
-        Intent move = new Intent(getBaseContext(), LearnJp0_1.class);
-        startActivityForResult(move, 0);
-    }
+//    void goTemp(){
+//        Intent move = new Intent(getBaseContext(), LearnJp0_1.class);
+//        startActivityForResult(move, 0);
+//    }
 }
