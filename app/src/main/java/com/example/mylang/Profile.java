@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.HashMap;
 
 public class Profile extends AppCompatActivity {
     Button btnlogout;
@@ -15,8 +18,12 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         sm = new SessionManager(getBaseContext());
+        HashMap userdata = sm.getUserDetails();
         btnlogout = (Button) findViewById(R.id.btnLogout);
         btnlogout.setOnClickListener(op);
+
+        TextView txtUname = (TextView) findViewById(R.id.txtUname);
+        txtUname.setText(userdata.get("username").toString());
     }
     View.OnClickListener op = new View.OnClickListener() {
         @Override

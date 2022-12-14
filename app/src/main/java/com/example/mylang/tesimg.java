@@ -120,7 +120,7 @@ public class tesimg extends AppCompatActivity {
     }
 
     public void translate(String natname){
-        tljp.translate("china")
+        tljp.translate(natname)
                 .addOnSuccessListener(new OnSuccessListener<String>() {
                     @Override
                     public void onSuccess(String s) {
