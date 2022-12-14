@@ -255,6 +255,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:contentPadding="20dp"
+                android:layout_marginTop="20dp"
                 >
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/incardCam"
@@ -271,10 +272,10 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         android:gravity="end"
-                        app:layout_constraintEnd_toStartOf="@id/imgCam"
+                        app:layout_constraintEnd_toStartOf="@id/imgMap"
                         />
                     <ImageView
-                        android:id="@+id/imgCam"
+                        android:id="@+id/imgMap"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/camera_30_exp"
@@ -304,6 +305,73 @@
                         android:textColor="@color/black"
                         android:backgroundTint="#F8E69A"
                         app:layout_constraintTop_toBottomOf="@id/txtCam"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardGmap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="24dp"
+                app:cardBackgroundColor="#FEFADF"
+                app:layout_constraintTop_toBottomOf="@id/cardCam"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:contentPadding="20dp"
+                android:layout_marginTop="20dp"
+                >
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/incardGmap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <TextView
+                        android:id="@+id/txtTransMap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Translate Location Name"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:gravity="end"
+                        app:layout_constraintEnd_toStartOf="@id/imgCam"
+                        />
+                    <ImageView
+                        android:id="@+id/imgCam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/map_30"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/txtTransMap"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+                    <TextView
+                        android:layout_margin="16dp"
+                        android:id="@+id/txtMap"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="Cari lokasi dan aplikasi akan menerjemahkan nama lokasi tersebut"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@id/btnMap"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtTransMap"
+                        android:gravity="center"
+                        />
+                    <Button
+                        android:id="@+id/btnMap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="buka map"
+                        android:textColor="@color/black"
+                        android:backgroundTint="#F8E69A"
+                        app:layout_constraintTop_toBottomOf="@id/txtMap"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         />

@@ -3,4 +3,5 @@
     <string name="progress_belajar">Progress Belajar</string>
     <string name="list_fitur">List Fitur</string>
     <string name="translate_via_image">Translate via Image</string>
+    <string name="title_activity_map">Map</string>
 </resources>

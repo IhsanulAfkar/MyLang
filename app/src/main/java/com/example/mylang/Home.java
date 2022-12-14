@@ -45,6 +45,8 @@ public class Home extends AppCompatActivity {
 
 //        Button btnTemp = (Button) findViewById(R.id.btnTemp);
 //        btnTemp.setOnClickListener(operasi);
+        Button btnMap = (Button) findViewById(R.id.btnMap);
+        btnMap.setOnClickListener(operasi);
     }
 
     View.OnClickListener operasi = new View.OnClickListener() {
@@ -56,6 +58,7 @@ public class Home extends AppCompatActivity {
                 case R.id.btnCam:goCam();break;
 //                case R.id.btnProf:goProf();break;
 //                case R.id.btnTemp:goTemp();break;
+                case R.id.btnMap:goMap();break;
             }
         }
     };
@@ -76,6 +79,10 @@ public class Home extends AppCompatActivity {
 
     void goProf(){
         Intent move = new Intent(getBaseContext(), Profile.class);
+        startActivityForResult(move, 0);
+    }
+    void goMap(){
+        Intent move = new Intent(getBaseContext(), Map.class);
         startActivityForResult(move, 0);
     }
 
