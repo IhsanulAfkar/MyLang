@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -25,7 +26,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class tesimg extends AppCompatActivity {
-
+    public static final int SCALING_FACTOR = 10;
     Button b1;
     ImageView iv;
     private static final int kodekamera= 1888;
@@ -79,19 +80,27 @@ public class tesimg extends AppCompatActivity {
         Bitmap bm;
         bm = (Bitmap) datanya.getExtras().get("data");
         iv.setImageBitmap(bm);
+        BitmapDrawable imgToPass = (BitmapDrawable) iv.getDrawable();
+        Bitmap temp = imgToPass.getBitmap();
+//        Bitmap smallerBm = Bitmap.createScaledBitmap(
+//                temp,
+//                temp.getWidth()/SCALING_FACTOR,
+//                temp.getHeight()/SCALING_FACTOR,
+//                false
+//        );
+//        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//        bm.compress(Bitmap.CompressFormat.JPEG, 85, stream);
+//        byte[] byteArray = stream.toByteArray(); // convert camera photo to byte array
+        InputImage image = InputImage.fromBitmap(temp, 0);
 
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bm.compress(Bitmap.CompressFormat.JPEG, 85, stream);
-        byte[] byteArray = stream.toByteArray(); // convert camera photo to byte array
-//        Toast.makeText(getBaseContext(), "fail",Toast.LENGTH_LONG).show();
-        InputImage image = InputImage.fromByteArray(byteArray,bm.getWidth(),bm.getHeight(), 0, InputImage.IMAGE_FORMAT_NV21);
 
 //        if(image.getByteBuffer() == null){
-//            Toast.makeText(getBaseContext(), image.getByteBuffer().toString(),Toast.LENGTH_LONG).show();
-//        }
+//            Toast.makeText(getBaseContext(), "fail",Toast.LENGTH_LONG).show();
+//        } else {
         objectDetector.process(image)
                 .addOnSuccessListener(
                         detectedObjects -> {
+//                            Toast.makeText(getBaseContext(), "ya",Toast.LENGTH_LONG).show();
                             // Task completed successfully
                             StringBuilder sb = new StringBuilder();
 //                            List<BoxWithText> list = new ArrayList<>();
@@ -99,10 +108,10 @@ public class tesimg extends AppCompatActivity {
                                 for (DetectedObject.Label label : object.getLabels()) {
                                     sb.append(label.getText()).append(" : ")
                                             .append(label.getConfidence()).append("\n");
-                                    Toast.makeText(getBaseContext(), label.getText(), Toast.LENGTH_LONG).show();
+//                                    Toast.makeText(getBaseContext(), label.getText(), Toast.LENGTH_LONG).show();
                                 }
                                 if (!object.getLabels().isEmpty()) {
-//                                    Toast.makeText(getBaseContext(), object.getLabels().get(0).getText(), Toast.LENGTH_LONG).show();
+//                                    Toast.makeText(getBaseContext(), "object.getLabels().get(0).getText()", Toast.LENGTH_LONG).show();
 //                                    list.add(new BoxWithText(object.getLabels().get(0).getText(), object.getBoundingBox()));
                                 } else {
 
@@ -125,6 +134,7 @@ public class tesimg extends AppCompatActivity {
                             // ...
                             e.printStackTrace();
                         });
+//        }
 //    }
 //        runDetection(bm);
         // Set imageview to image that was
