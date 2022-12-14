@@ -18,15 +18,11 @@ import android.provider.MediaStore;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.mlkit.vision.common.InputImage;
-import com.google.mlkit.vision.objects.DetectedObject;
-import com.google.mlkit.vision.objects.ObjectDetection;
-import com.google.mlkit.vision.objects.ObjectDetector;
-import com.google.mlkit.vision.objects.defaults.ObjectDetectorOptions;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -38,7 +34,6 @@ import java.util.List;
 public class Camera extends AppCompatActivity {
     Button btnCam;
     ImageView placeholder;
-    private ObjectDetector objectDetector;
 
     private static final int cameracode = 222;
     private static final int MY_PERMISSIONS_REQUEST_WRITE=223;
@@ -47,8 +42,32 @@ public class Camera extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
+
+        ImageButton btnBack = (ImageButton) findViewById(R.id.btnBack);
+        ImageView logo = (ImageView) findViewById(R.id.logo);
+        btnBack.setOnClickListener(operasi);
+        logo.setOnClickListener(operasi);
     }
 
 //    @Override
+    View.OnClickListener operasi = new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btnBack:goBack();break;
+            case R.id.logo:goHome();break;
+            }
+        }
+    };
 
+    void goBack(){
+        finish();
+//        Intent move = new Intent(getBaseContext(), Home.class);
+//        startActivityForResult(move, 0);
+    }
+
+    void goHome(){
+        Intent move = new Intent(getBaseContext(), Home.class);
+        startActivityForResult(move, 0);
+    }
 }

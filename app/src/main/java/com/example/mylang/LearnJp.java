@@ -26,13 +26,17 @@ import com.google.mlkit.nl.translate.Translation;
 import com.google.mlkit.nl.translate.Translator;
 import com.google.mlkit.nl.translate.TranslatorOptions;
 
-public class LearnJp extends AppCompatActivity {
+import java.util.HashMap;
 
+public class LearnJp extends AppCompatActivity {
+    SessionManager sessionManager;
     private Translator tljp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn_jp);
+        sessionManager = new SessionManager(getApplicationContext());
+        HashMap userdata = sessionManager.getUserDetails();
 
         CardView lvJp0 = (CardView) findViewById(R.id.lvJp0);
         lvJp0.setOnClickListener(operasi);
@@ -41,6 +45,9 @@ public class LearnJp extends AppCompatActivity {
         ImageView logo = (ImageView) findViewById(R.id.logo);
         btnBack.setOnClickListener(operasi);
         logo.setOnClickListener(operasi);
+
+        TextView lvJp = (TextView) findViewById(R.id.lvJp);
+        lvJp.setText(userdata.get("quiz_jp")+"/24 - Lv 0");
     }
 
     View.OnClickListener operasi = new View.OnClickListener() {

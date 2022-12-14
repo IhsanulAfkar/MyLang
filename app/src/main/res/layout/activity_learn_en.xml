@@ -70,12 +70,13 @@
             app:layout_constraintTop_toBottomOf="@id/div1"
             >
             <TextView
+                android:id="@+id/lvEn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="7/25"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

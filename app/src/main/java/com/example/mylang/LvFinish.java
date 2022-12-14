@@ -2,12 +2,15 @@ package com.example.mylang;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.TextView;
 
 import java.util.HashMap;
 
 public class LvFinish extends AppCompatActivity {
+    Handler h = new Handler();
     SessionManager sm;
     public String mytext[] = {
             "Selamat!\nAnda berhasil melewati level ini!\nBerjuanglah di level selanjutnya",
@@ -23,5 +26,14 @@ public class LvFinish extends AppCompatActivity {
 
         TextView txtCongrats = (TextView) findViewById(R.id.txtCongrats);
         txtCongrats.setText(mytext[Integer.parseInt(userdata.get("temp").toString())]);
+
+        h.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent goHome = new Intent(LvFinish.this, Home.class);
+                startActivity(goHome);
+                finish();
+            }
+        }, 1000);
     }
 }

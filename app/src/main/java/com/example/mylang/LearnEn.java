@@ -13,14 +13,18 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class LearnEn extends AppCompatActivity {
+import java.util.HashMap;
 
+public class LearnEn extends AppCompatActivity {
+    SessionManager sessionManager;
     private ListView listviewEn;
     private String [] names = {"Alif", "Budi", "Rusa"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn_en);
+        sessionManager = new SessionManager(getApplicationContext());
+        HashMap userdata = sessionManager.getUserDetails();
 
         CardView lvEn0 = (CardView) findViewById(R.id.lvEn0);
         lvEn0.setOnClickListener(operasi);
@@ -29,6 +33,9 @@ public class LearnEn extends AppCompatActivity {
         ImageView logo = (ImageView) findViewById(R.id.logo);
         btnBack.setOnClickListener(operasi);
         logo.setOnClickListener(operasi);
+
+        TextView lvEn = (TextView) findViewById(R.id.lvEn);
+        lvEn.setText(userdata.get("quiz_en")+"/10 - Lv 0");
     }
 
     View.OnClickListener operasi = new View.OnClickListener() {
