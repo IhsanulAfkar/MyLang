@@ -43,8 +43,8 @@ public class Login extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             switch (view.getId()){
-                case R.id.btnLogin:login();break;
-//                case R.id.btnLogin:goHome();break;
+//                case R.id.btnLogin:login();break;
+                case R.id.btnLogin:goHome();break;
                 case R.id.txtRegis:goRegis();break;
             }
         }
@@ -76,8 +76,8 @@ public class Login extends AppCompatActivity {
 
     }
     void goHome(){
-        Intent move = new Intent(getBaseContext(), Home.class);
-//        Intent move = new Intent(getBaseContext(), tesimg.class);
+//        Intent move = new Intent(getBaseContext(), Home.class);
+        Intent move = new Intent(getBaseContext(), tesimg.class);
         startActivityForResult(move, 0);
     }
 

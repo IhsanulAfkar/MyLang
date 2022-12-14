@@ -1,5 +1,6 @@
 package com.example.mylang;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -14,6 +15,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.mlkit.common.model.DownloadConditions;
+import com.google.mlkit.common.model.LocalModel;
+import com.google.mlkit.nl.translate.TranslateLanguage;
+import com.google.mlkit.nl.translate.Translation;
+import com.google.mlkit.nl.translate.Translator;
+import com.google.mlkit.nl.translate.TranslatorOptions;
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.objects.DetectedObject;
 import com.google.mlkit.vision.objects.ObjectDetection;
@@ -29,11 +38,13 @@ public class tesimg extends AppCompatActivity {
     public static final int SCALING_FACTOR = 10;
     Button b1;
     ImageView iv;
+    String benda;
+    String benda1;
+    private Translator tljp;
     private static final int kodekamera= 1888;
     private static final int MY_PERMISSIONS_REQUEST_WRITE=223;
     String nmFile;
     File f;
-    String photoPath;
     private ObjectDetector objectDetector;
 
 
@@ -53,6 +64,13 @@ public class tesimg extends AppCompatActivity {
             }
         });
 
+//        LocalModel localModel =
+//                new LocalModel.Builder()
+//                        .setAssetFilePath("model.tflite")
+//                        // or .setAbsoluteFilePath(absolute file path to model file)
+//                        // or .setUri(URI to model file)
+//                        .build();
+
         ObjectDetectorOptions options =
                 new ObjectDetectorOptions.Builder()
                         .setDetectorMode(ObjectDetectorOptions.SINGLE_IMAGE_MODE)
@@ -61,6 +79,30 @@ public class tesimg extends AppCompatActivity {
                         .build();
 
         objectDetector = ObjectDetection.getClient(options);
+
+        TranslatorOptions opjp = new TranslatorOptions.Builder()
+                .setSourceLanguage(TranslateLanguage.ENGLISH)
+                .setTargetLanguage(TranslateLanguage.JAPANESE)
+                .build();
+
+        tljp = Translation.getClient(opjp);
+
+        DownloadConditions dc = new DownloadConditions.Builder()
+                .requireWifi()
+                .build();
+        tljp.downloadModelIfNeeded(dc)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getBaseContext(), "Fail to download model", Toast.LENGTH_LONG).show();
+                    }
+                });
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode,resultCode, data);
@@ -76,8 +118,28 @@ public class tesimg extends AppCompatActivity {
             }
         }
     }
+
+    public void translate(String natname){
+        tljp.translate("china")
+                .addOnSuccessListener(new OnSuccessListener<String>() {
+                    @Override
+                    public void onSuccess(String s) {
+                        //
+                        Toast.makeText(getBaseContext(), s, Toast.LENGTH_LONG).show();
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getBaseContext(), "Failed to translate" , Toast.LENGTH_LONG).show();
+                    }
+                });
+    }
+
     private void prosesKamera(Intent datanya) throws IOException{
         Bitmap bm;
+//        String benda;
         bm = (Bitmap) datanya.getExtras().get("data");
         iv.setImageBitmap(bm);
         BitmapDrawable imgToPass = (BitmapDrawable) iv.getDrawable();
@@ -104,10 +166,10 @@ public class tesimg extends AppCompatActivity {
                             // Task completed successfully
                             StringBuilder sb = new StringBuilder();
 //                            List<BoxWithText> list = new ArrayList<>();
+
                             for (DetectedObject object : detectedObjects) {
                                 for (DetectedObject.Label label : object.getLabels()) {
-                                    sb.append(label.getText()).append(" : ")
-                                            .append(label.getConfidence()).append("\n");
+                                    sb.append(label.getText()).append("\n");
 //                                    Toast.makeText(getBaseContext(), label.getText(), Toast.LENGTH_LONG).show();
                                 }
                                 if (!object.getLabels().isEmpty()) {
@@ -125,7 +187,10 @@ public class tesimg extends AppCompatActivity {
                                 Toast.makeText(getBaseContext(), "Couldn't detect!!", Toast.LENGTH_LONG).show();
                             } else {
 //                                getOutputTextView().setText(sb.toString());
-                                Toast.makeText(getBaseContext(), sb.toString(), Toast.LENGTH_LONG).show();
+                                benda = sb.toString();
+                                Toast.makeText(getBaseContext(), benda+"ss", Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getBaseContext(), translate(benda), Toast.LENGTH_LONG).show();
+                                translate(benda);
                             }
                         })
                 .addOnFailureListener(
